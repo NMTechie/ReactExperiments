@@ -33,48 +33,79 @@ function SearchInventory() {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor="txtCategory">Category:</label>
-        <input
-          type="text"
-          id="txtCategory"
-          value={category}
-          onChange={inputFieldDataChangeHandler}
-        ></input>
-        <label htmlFor="txtBrand">Brand:</label>
-        <input
-          type="text"
-          id="txtBrand"
-          value={brand}
-          onChange={inputFieldDataChangeHandler}
-        ></input>
-        <label htmlFor="numPrice">Price:</label>
-        <input
-          type="number"
-          id="numPrice"
-          value={price}
-          onChange={inputFieldDataChangeHandler}
-        ></input>
-        <label htmlFor="txtClothStyle">Name of the Style:</label>
-        <input
-          type="text"
-          id="txtClothStyle"
-          value={clothStyle}
-          onChange={inputFieldDataChangeHandler}
-        ></input>
+    <div className="container">
+      <div className="row">
+        <h3> Search for Inventory </h3>
+      </div>
+      <div className="row">
+        <div className="col">
+          <label htmlFor="txtCategory">Category:</label>
+          <input
+            type="text"
+            id="txtCategory"
+            value={category}
+            onChange={inputFieldDataChangeHandler}
+            className="form-control"
+          ></input>
+        </div>
+        <div className="col">
+          <label htmlFor="txtBrand">Brand:</label>
+          <input
+            type="text"
+            id="txtBrand"
+            value={brand}
+            onChange={inputFieldDataChangeHandler}
+            className="form-control"
+          ></input>
+        </div>
+        <div className="col">
+          <label htmlFor="numPrice">Price:</label>
+          <input
+            type="number"
+            id="numPrice"
+            value={price}
+            onChange={inputFieldDataChangeHandler}
+            className="form-control"
+          ></input>
+        </div>
+        <div className="col">
+          <label htmlFor="txtClothStyle">Name of the Style:</label>
+          <input
+            type="text"
+            id="txtClothStyle"
+            value={clothStyle}
+            onChange={inputFieldDataChangeHandler}
+            className="form-control"
+          ></input>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-3"></div>
         <input
           type="button"
           id="btnSearch"
           value="Click Here to Search"
+          className="col-6 btn btn-primary"
         ></input>
-      </form>
-      <div>
-        <h1> The search criterion is </h1>
-        <p>Category value is : {category}</p>
-        <p>Brand value is : {brand}</p>
-        <p>Price value is : {price}</p>
-        <p>Cloth Style value is : {clothStyle}</p>
+      </div>
+      <div className="row">
+        <div className="row">
+          <h5> The search criterion is </h5>
+        </div>
+        <div className="row">
+          <div className="col">
+            <p>Category value is : {category}</p>
+          </div>
+          <div className="col">
+            <p>Brand value is : {brand}</p>
+          </div>
+          <div className="col">
+            <p>Price value is : {price}</p>
+          </div>
+          <div className="col">
+            <p>Cloth Style value is : {clothStyle}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
