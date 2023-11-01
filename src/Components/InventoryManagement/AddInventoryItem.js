@@ -8,7 +8,7 @@ function AddInventory(props) {
     "Please enter the style to search"
   );
 
-  const inputFieldDataChangeHandler = (e) => {
+  const inputFieldFocusOutHandler = (e) => {
     let val = e.target.value;
     let targetSource = e.target.id;
     switch (targetSource) {
@@ -19,14 +19,38 @@ function AddInventory(props) {
         setCategory(val);
         break;
       case "txtBrand":
-        val = val ? val : "Please enter Brand to search";
+        if (!val) {
+          val = "Please enter category to search";
+        }
+        setBrand(val);
+        break;
+      case "numPrice":
+        if (!val) {
+          val = 0;
+        }
+        setPrice(val);
+        break;
+      case "txtClothStyle":
+        val = val ? val : "Please enter cloth style to search";
+        setClothStyle(val);
+        break;
+    }
+  };
+
+  const inputFieldDataChangeHandler = (e) => {
+    let val = e.target.value;
+    let targetSource = e.target.id;
+    switch (targetSource) {
+      case "txtCategory":
+        setCategory(val);
+        break;
+      case "txtBrand":
         setBrand(val);
         break;
       case "numPrice":
         setPrice(val);
         break;
       case "txtClothStyle":
-        val = val ? val : "Please enter cloth style to search";
         setClothStyle(val);
         break;
     }
@@ -49,6 +73,7 @@ function AddInventory(props) {
           id="txtCategory"
           value={category}
           onChange={inputFieldDataChangeHandler}
+          onBlur={inputFieldFocusOutHandler}
         ></input>
         <label htmlFor="txtBrand">Brand:</label>
         <input
@@ -56,6 +81,7 @@ function AddInventory(props) {
           id="txtBrand"
           value={brand}
           onChange={inputFieldDataChangeHandler}
+          onBlur={inputFieldFocusOutHandler}
         ></input>
         <label htmlFor="numPrice">Price:</label>
         <input
@@ -63,6 +89,7 @@ function AddInventory(props) {
           id="numPrice"
           value={price}
           onChange={inputFieldDataChangeHandler}
+          onBlur={inputFieldFocusOutHandler}
         ></input>
         <label htmlFor="txtClothStyle">Name of the Style:</label>
         <input
@@ -70,6 +97,7 @@ function AddInventory(props) {
           id="txtClothStyle"
           value={clothStyle}
           onChange={inputFieldDataChangeHandler}
+          onBlur={inputFieldFocusOutHandler}
         ></input>
         <input
           type="button"
