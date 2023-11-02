@@ -55,13 +55,29 @@ function AddInventory(props) {
         break;
     }
   };
-  const handleAddInventoryButtonPress = () => {
-    props.addInventory({
+  const handleAddInventoryButtonPress = async () => {
+    let itemToBeAdded = {
       category: category,
       brand: brand,
       price: price,
       clothStyle: clothStyle,
-    });
+    };
+    //first save data into DB
+    let requestoption = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(itemToBeAdded),
+    };
+    const response = await fetch(
+      "http://localhost:3001/inventoryitems",
+      requestoption
+    );
+    if (response.status === 201) {
+      const responseBodyData = await response.json();
+      console.log(responseBodyData);
+      //If that is successfull then send the updated data to parent componet
+      props.addInventory(responseBodyData);
+    }
   };
 
   return (
@@ -119,7 +135,7 @@ function AddInventory(props) {
         </div>
       </div>
       <div className="row mt-2">
-        <div className="col-4"/>
+        <div className="col-4" />
         <input
           type="button"
           id="btnSearch"

@@ -48,10 +48,6 @@ function SearchInventory(props) {
     let mainInventoryList = props.inventoryItems;
     for (let index = 0; index < mainInventoryList.length; index++) {
       const element = mainInventoryList[index];
-      console.log("Index->");
-      console.log(index);
-      console.log(price);
-      console.log(element.price);
       if (
         category !== "Please enter category to search" &&
         element.category !== category

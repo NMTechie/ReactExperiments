@@ -1,3 +1,14 @@
+# Few Basic Question for Interview
+1. What is difference === vs ==
+2. What is diff != vs !==
+3. what is the difference npm install vs npm install <pkgname> --save
+4. what is npm install -g <pkg name>
+5. what is webpack
+6. what is bable
+7. why React is a library. Name React framework
+8. How a map function being used
+9. understand fetch https://www.javascripttutorial.net/web-apis/javascript-fetch-api/
+10. use of aync/await in ES6 vs old way .then (https://stackoverflow.com/questions/67248064/getting-the-result-from-a-fetch-function-in-javascript)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

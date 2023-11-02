@@ -18,11 +18,11 @@ function MainApp() {
     //setInventory({data:inventoryData["data"]}); // !!!!!!! Please pay attention here
     //console.log(inventoryData);
 
-    inventoryItem.id = inventoryData["data"].length;
+    //inventoryItem.id = inventoryData["data"].length; This is not required any more as DB is returning the same
     let currentInventory = inventoryData;
     currentInventory["data"].push(inventoryItem);
     setInventory({ data: currentInventory["data"] });
-    console.log(currentInventory);
+    //console.log(currentInventory);
   };
   return (
     <div className="container">
