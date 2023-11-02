@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DisplayGrid from "./commonComponent/DisplayGrid";
 
 function SearchInventory(props) {
   const [category, setCategory] = useState("Please enter category to search");
@@ -22,20 +23,21 @@ function SearchInventory(props) {
         setCategory(val);
         break;
       case "txtBrand":
-        val = val ? val : "Please enter Brand to search";
+        val = val ? val : "Please enter brand to search";
         setBrand(val);
         break;
       case "numPrice":
         setPrice(val);
         break;
       case "txtClothStyle":
-        val = val ? val : "Please enter cloth style to search";
+        val = val ? val : "Please enter the style to search";
         setClothStyle(val);
         break;
     }
   };
 
   const searchButtonPressed = () => {
+    console.log("Button Press");
     // clear the search state whenever search button clicked
     filteredInventory["filteredList"].splice(
       0,
@@ -46,7 +48,10 @@ function SearchInventory(props) {
     let mainInventoryList = props.inventoryItems;
     for (let index = 0; index < mainInventoryList.length; index++) {
       const element = mainInventoryList[index];
-      console.log(element.category);
+      console.log("Index->");
+      console.log(index);
+      console.log(price);
+      console.log(element.price);
       if (
         category !== "Please enter category to search" &&
         element.category !== category
@@ -56,7 +61,9 @@ function SearchInventory(props) {
       if (brand !== "Please enter brand to search" && element.brand !== brand) {
         continue;
       }
-      if (price !== 0 && element.price !== price) {
+      if (price !== 0 && element.price != price) {
+        console.log(price);
+        console.log(element.price);
         continue;
       }
       if (
@@ -150,34 +157,7 @@ function SearchInventory(props) {
           <h5>The search result is below</h5>
         </div>
         <div className="row">
-          <table className="table table-striped">
-            <thead>
-              <tr
-                style={{
-                  fontStyle: "italic",
-                }}
-              >
-                <th>Id</th>
-                <th>Category</th>
-                <th>Brand</th>
-                <th>Price</th>
-                <th>Cloth Style</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredInventory["filteredList"].map((inventoryitem) => {
-                return (
-                  <tr>
-                    <th>{inventoryitem.id}</th>
-                    <td>{inventoryitem.category}</td>
-                    <td>{inventoryitem.brand}</td>
-                    <td>{inventoryitem.price}</td>
-                    <td>{inventoryitem.clothStyle}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <DisplayGrid listItems={filteredInventory["filteredList"]} />
         </div>
       </div>
     </div>
