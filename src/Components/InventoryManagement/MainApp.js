@@ -44,7 +44,7 @@ function MainApp() {
       <div className="row mt-3" style={{
         background: "lightyellow"
       }}>
-        <SearchInventory />
+        <SearchInventory inventoryItems={inventoryData["data"]}/>
       </div>
     </div>
   );

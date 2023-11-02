@@ -1,12 +1,15 @@
 import { useState } from "react";
 
-function SearchInventory() {
+function SearchInventory(props) {
   const [category, setCategory] = useState("Please enter category to search");
   const [brand, setBrand] = useState("Please enter brand to search");
   const [price, setPrice] = useState(0);
   const [clothStyle, setClothStyle] = useState(
     "Please enter the style to search"
   );
+  const [filteredInventory, setfilteredInventory] = useState({
+    filteredList: [],
+  });
 
   const inputFieldDataChangeHandler = (e) => {
     let val = e.target.value;
@@ -32,6 +35,40 @@ function SearchInventory() {
     }
   };
 
+  const searchButtonPressed = () => {
+    // clear the search state whenever search button clicked
+    filteredInventory["filteredList"].splice(
+      0,
+      filteredInventory["filteredList"].length
+    );
+    setfilteredInventory({ filteredList: filteredInventory["filteredList"] });
+    //
+    let mainInventoryList = props.inventoryItems;
+    for (let index = 0; index < mainInventoryList.length; index++) {
+      const element = mainInventoryList[index];
+      console.log(element.category);
+      if (
+        category !== "Please enter category to search" &&
+        element.category !== category
+      ) {
+        continue;
+      }
+      if (brand !== "Please enter brand to search" && element.brand !== brand) {
+        continue;
+      }
+      if (price !== 0 && element.price !== price) {
+        continue;
+      }
+      if (
+        clothStyle !== "Please enter the style to search" &&
+        element.clothStyle !== clothStyle
+      ) {
+        continue;
+      }
+      filteredInventory["filteredList"].push(element);
+      setfilteredInventory({ filteredList: filteredInventory["filteredList"] });
+    }
+  };
   return (
     <div className="container">
       <div className="row">
@@ -86,6 +123,7 @@ function SearchInventory() {
           id="btnSearch"
           value="Click Here to Search"
           className="col-6 btn btn-primary"
+          onClick={searchButtonPressed}
         ></input>
       </div>
       <div className="row">
@@ -105,6 +143,41 @@ function SearchInventory() {
           <div className="col">
             <p>Cloth Style value is : {clothStyle}</p>
           </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="row">
+          <h5>The search result is below</h5>
+        </div>
+        <div className="row">
+          <table className="table table-striped">
+            <thead>
+              <tr
+                style={{
+                  fontStyle: "italic",
+                }}
+              >
+                <th>Id</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Cloth Style</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredInventory["filteredList"].map((inventoryitem) => {
+                return (
+                  <tr>
+                    <th>{inventoryitem.id}</th>
+                    <td>{inventoryitem.category}</td>
+                    <td>{inventoryitem.brand}</td>
+                    <td>{inventoryitem.price}</td>
+                    <td>{inventoryitem.clothStyle}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
