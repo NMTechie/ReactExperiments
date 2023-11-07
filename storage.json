@@ -1,39 +1,11 @@
 {
   "inventoryitems": [
     {
-      "category": "Pant",
-      "brand": "Lee Cooper",
-      "price": "2999",
-      "clothStyle": "Jeans",
-      "id": 1
-    },
-    {
-      "category": "Pant",
-      "brand": "Vanhausen",
-      "price": "2999",
-      "clothStyle": "Formal",
+      "category": "Nilesh",
+      "brand": "kl;;",
+      "price": "8870",
+      "clothStyle": "A",
       "id": 2
-    },
-    {
-      "category": "Shirt",
-      "brand": "Arrow",
-      "price": "2999",
-      "clothStyle": "Formal",
-      "id": 3
-    },
-    {
-      "category": "Shirt",
-      "brand": "Peter England",
-      "price": "1599",
-      "clothStyle": "Causal",
-      "id": 4
-    },
-    {
-      "category": "Barmuda",
-      "brand": "Lux",
-      "price": "599",
-      "clothStyle": "Long Half",
-      "id": 5
     }
   ]
 }

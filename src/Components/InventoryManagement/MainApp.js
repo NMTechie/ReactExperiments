@@ -38,6 +38,12 @@ function MainApp() {
     setInventory({ data: currentInventory["data"] });
     //console.log(currentInventory);
   };
+  const refreshInventory = (deletedItem) => {
+    let currentInventory = inventoryData;
+    let idx = currentInventory["data"].indexOf(deletedItem);
+    currentInventory["data"].splice(idx,1);
+    setInventory({ data: currentInventory["data"] });
+  }
   return (
     <div className="container">
       <div
@@ -62,7 +68,7 @@ function MainApp() {
           background: "lightsalmon",
         }}
       >
-        <DisplayInventory inventoryItems={inventoryData["data"]} />
+        <DisplayInventory inventoryItems={inventoryData["data"]} refershCallback={refreshInventory}/>
       </div>
       <div
         className="row mt-3"
@@ -70,7 +76,7 @@ function MainApp() {
           background: "lightyellow",
         }}
       >
-        <SearchInventory inventoryItems={inventoryData["data"]} />
+        <SearchInventory inventoryItems={inventoryData["data"]} refershCallback={refreshInventory}/>
       </div>
     </div>
   );

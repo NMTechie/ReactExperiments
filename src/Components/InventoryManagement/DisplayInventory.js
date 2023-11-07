@@ -11,7 +11,7 @@ function DisplayInventory(props) {
         </h5>
       </div>
       <div className="row">
-        <DisplayGrid listItems={props.inventoryItems} />
+        <DisplayGrid listItems={props.inventoryItems} refreshCallBack={props.refershCallback}/>
       </div>
     </div>
   );

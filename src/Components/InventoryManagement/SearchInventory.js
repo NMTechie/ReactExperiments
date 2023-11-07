@@ -35,17 +35,9 @@ function SearchInventory(props) {
         break;
     }
   };
-
-  const searchButtonPressed = () => {
-    console.log("Button Press");
-    // clear the search state whenever search button clicked
-    filteredInventory["filteredList"].splice(
-      0,
-      filteredInventory["filteredList"].length
-    );
-    setfilteredInventory({ filteredList: filteredInventory["filteredList"] });
-    //
+  const filterLogic = () => {
     let mainInventoryList = props.inventoryItems;
+    let filteredItems = [];
     for (let index = 0; index < mainInventoryList.length; index++) {
       const element = mainInventoryList[index];
       if (
@@ -68,9 +60,27 @@ function SearchInventory(props) {
       ) {
         continue;
       }
-      filteredInventory["filteredList"].push(element);
-      setfilteredInventory({ filteredList: filteredInventory["filteredList"] });
+      filteredItems.push(element);      
     }
+    return filteredItems;
+  };
+  const refreshFilteredItems = (deletedItem) => {
+    let filteritems = filterLogic();
+    setfilteredInventory({ filteredList: filteritems });
+  };
+  const searchButtonPressed = () => {
+    console.log("Button Press");
+    // clear the search state whenever search button clicked
+    //if (filteredInventory["filteredList"]) {
+      filteredInventory["filteredList"].splice(
+        0,
+        filteredInventory["filteredList"].length
+      );
+      setfilteredInventory({ filteredList: filteredInventory["filteredList"] });
+    //}
+    //
+    let filteritems = filterLogic();
+    setfilteredInventory({ filteredList: filteritems });
   };
   return (
     <div className="container">
@@ -153,7 +163,11 @@ function SearchInventory(props) {
           <h5>The search result is below</h5>
         </div>
         <div className="row">
-          <DisplayGrid listItems={filteredInventory["filteredList"]} />
+          <DisplayGrid
+            listItems={filteredInventory["filteredList"]}
+            refreshCallBack={props.refershCallback}
+            refreshFilterItems={refreshFilteredItems}
+          />
         </div>
       </div>
     </div>
