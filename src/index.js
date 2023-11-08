@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import App from './App';
+import App from './App';
 import MyEntryComponents from './Components/MyEntryApp';
 import MainApp from './Components/InventoryManagement/MainApp';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +10,8 @@ const root = ReactDOM.createRoot(document.getElementById('root')); // This is wh
 root.render(
   <React.StrictMode>
     {/* <MyEntryComponents /> */}
-    <MainApp/>
+    {/* <MainApp/> */}
+    <App/>
   </React.StrictMode>
 );
 
