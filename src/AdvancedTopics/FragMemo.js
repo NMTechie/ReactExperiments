@@ -2,9 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 
 function FragMemo(props) {
-    useEffect(() => {
-        console.log(props.fromParent);
-        }, [props.fromParent]);
+    console.log("rendered the child component");
   return (
     <React.Fragment>
       <h1> It is a demo Showing concept of Fragment and Memo Component </h1>

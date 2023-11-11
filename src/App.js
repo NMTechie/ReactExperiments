@@ -6,6 +6,7 @@ import { useState } from "react";
 function App() {
   const [counter, setCounter] = useState(1);
   const buttonClickHandler = (event) => {
+    console.log("Button has clicked");
     let currCounter = counter;
     currCounter = currCounter + 1;
     setCounter(currCounter);
@@ -13,7 +14,8 @@ function App() {
   return (
     <div className="App">
       <div style={{ background: "grey" }}>
-        <FragMemo fromParent={"Counter value is: " + (counter)}/>
+        <p>Counter value is :{counter}</p>
+        <FragMemo fromParent="Sending Always Same Value"/>
       </div>
       <div>
         <button type="button" onClick={buttonClickHandler}>Click</button>
