@@ -2,6 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import FragMemo from "./AdvancedTopics/FragMemo";
 import { useState } from "react";
+import ChildComponent from "./AdvancedTopics/ChildComponent";
+import ErrorHandlingComp from "./AdvancedTopics/ErrorHandlingComp";
 
 function App() {
   const [counter, setCounter] = useState(1);
@@ -15,10 +17,24 @@ function App() {
     <div className="App">
       <div style={{ background: "grey" }}>
         <p>Counter value is :{counter}</p>
-        <FragMemo fromParent="Sending Always Same Value"/>
+        <FragMemo fromParent="Sending Always Same Value" />
+        <ErrorHandlingComp>
+          <ChildComponent valueFromParent="Nilesh Ranjan Mitra" />
+        </ErrorHandlingComp>
+        <ErrorHandlingComp>
+          <ChildComponent valueFromParent="Nilesh" />
+        </ErrorHandlingComp>
+        <ErrorHandlingComp>
+          <ChildComponent valueFromParent="Ranjan" />
+        </ErrorHandlingComp>
+        <ErrorHandlingComp>
+          <ChildComponent valueFromParent="Mitra" />
+        </ErrorHandlingComp>
       </div>
       <div>
-        <button type="button" onClick={buttonClickHandler}>Click</button>
+        <button type="button" onClick={buttonClickHandler}>
+          Click
+        </button>
       </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
