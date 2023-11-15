@@ -4,6 +4,8 @@ import FragMemo from "./AdvancedTopics/FragMemo";
 import { useState } from "react";
 import ChildComponent from "./AdvancedTopics/ChildComponent";
 import ErrorHandlingComp from "./AdvancedTopics/ErrorHandlingComp";
+import ClickButtonComp from "./AdvancedTopics/HigherOrderComp/ClickButtonComp";
+import MouseHoverCounter from "./AdvancedTopics/HigherOrderComp/MouseHoverCounter";
 
 function App() {
   const [counter, setCounter] = useState(1);
@@ -30,6 +32,11 @@ function App() {
         <ErrorHandlingComp>
           <ChildComponent valueFromParent="Mitra" />
         </ErrorHandlingComp>
+        <div style={{ background: "lightPink" }}>
+          <p>Higher order Example</p>
+        <ClickButtonComp/>
+        <MouseHoverCounter/>
+        </div>
       </div>
       <div>
         <button type="button" onClick={buttonClickHandler}>
