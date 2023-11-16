@@ -34,7 +34,7 @@ function App() {
         </ErrorHandlingComp>
         <div style={{ background: "lightPink" }}>
           <p>Higher order Example</p>
-        <ClickButtonComp/>
+        <ClickButtonComp passingValueToHoc="Nilesh"/>
         <MouseHoverCounter/>
         </div>
       </div>
