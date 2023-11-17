@@ -6,6 +6,9 @@ import ChildComponent from "./AdvancedTopics/ChildComponent";
 import ErrorHandlingComp from "./AdvancedTopics/ErrorHandlingComp";
 import ClickButtonComp from "./AdvancedTopics/HigherOrderComp/ClickButtonComp";
 import MouseHoverCounter from "./AdvancedTopics/HigherOrderComp/MouseHoverCounter";
+import ClickButtonCompTwo from "./AdvancedTopics/RenderProp/ClickButtonCompTwo";
+import MouseHoverCounterTwo from "./AdvancedTopics/RenderProp/MouseHoverCounterTwo";
+import WithRenderProps from "./AdvancedTopics/RenderProp/WithRenderProps";
 
 function App() {
   const [counter, setCounter] = useState(1);
@@ -34,8 +37,20 @@ function App() {
         </ErrorHandlingComp>
         <div style={{ background: "lightPink" }}>
           <p>Higher order Example</p>
-        <ClickButtonComp passingValueToHoc="Nilesh"/>
-        <MouseHoverCounter/>
+          <ClickButtonComp passingValueToHoc="Nilesh" />
+          <MouseHoverCounter />
+        </div>
+        <div style={{ background: "lightGreen" }}>
+          <p>Render Prop Example</p>
+          <MouseHoverCounterTwo />
+          <WithRenderProps
+            MyCustomFuncAsProp={(counter, incrementCounterLogic) => 
+              <ClickButtonCompTwo
+                CounterValue={counter} //pay attention to the syntax here. In case of Render Props the method does not have the body {} brackets
+                ClickHandler={incrementCounterLogic}
+              />
+            }
+          /> 
         </div>
       </div>
       <div>
