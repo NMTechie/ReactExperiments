@@ -9,6 +9,10 @@ import MouseHoverCounter from "./AdvancedTopics/HigherOrderComp/MouseHoverCounte
 import ClickButtonCompTwo from "./AdvancedTopics/RenderProp/ClickButtonCompTwo";
 import MouseHoverCounterTwo from "./AdvancedTopics/RenderProp/MouseHoverCounterTwo";
 import WithRenderProps from "./AdvancedTopics/RenderProp/WithRenderProps";
+import Level1Component from "./AdvancedTopics/ContextExample/Level1Component";
+import { MyCustomContextProvider } from "./AdvancedTopics/ContextExample/ContextExample";
+import { NileshContextProvider } from "./AdvancedTopics/ContextExample/ContextEample2";
+import Level11Component from "./AdvancedTopics/ContextExample/Level11Component";
 
 function App() {
   const [counter, setCounter] = useState(1);
@@ -51,6 +55,15 @@ function App() {
               />
             }
           /> 
+        </div>
+        <div style={{ background: "lightPink" }}>
+          <p>Context Example</p>          
+          <Level1Component/>  {/*The showcase of deafult value example of context*/}
+          <MyCustomContextProvider value="New Value for MyCustom Context">
+            <NileshContextProvider value="New-Value-For-Nilesh-Context">
+              <Level11Component/>
+            </NileshContextProvider>
+          </MyCustomContextProvider>
         </div>
       </div>
       <div>
