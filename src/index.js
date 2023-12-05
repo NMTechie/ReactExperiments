@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import MyEntryComponents from './Components/MyEntryApp';
 import MainApp from './Components/InventoryManagement/MainApp';
+import AdvanceConceptApp01 from './AdvanceConceptApp01';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // This is where the root DOM element is bootstraped with React render mechanism
@@ -11,7 +12,8 @@ root.render(
   <React.StrictMode>
     {/* <MyEntryComponents /> */}
     {/* <MainApp/> */}
-    <App/>
+    {/* <App/> */}
+    <AdvanceConceptApp01/>
   </React.StrictMode>
 );
 

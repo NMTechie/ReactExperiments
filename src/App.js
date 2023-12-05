@@ -48,20 +48,21 @@ function App() {
           <p>Render Prop Example</p>
           <MouseHoverCounterTwo />
           <WithRenderProps
-            MyCustomFuncAsProp={(counter, incrementCounterLogic) => 
+            MyCustomFuncAsProp={(counter, incrementCounterLogic) => (
               <ClickButtonCompTwo
                 CounterValue={counter} //pay attention to the syntax here. In case of Render Props the method does not have the body {} brackets
                 ClickHandler={incrementCounterLogic}
               />
-            }
-          /> 
+            )}
+          />
         </div>
         <div style={{ background: "lightPink" }}>
-          <p>Context Example</p>          
-          <Level1Component/>  {/*The showcase of deafult value example of context*/}
+          <p>Context Example</p>
+          <Level1Component />{" "}
+          {/*The showcase of deafult value example of context*/}
           <MyCustomContextProvider value="New Value for MyCustom Context">
             <NileshContextProvider value="New-Value-For-Nilesh-Context">
-              <Level11Component/>
+              <Level11Component />
             </NileshContextProvider>
           </MyCustomContextProvider>
         </div>
